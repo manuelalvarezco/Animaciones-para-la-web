@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu button animation</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+    }
+    
+    .container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+    }
+    
+    .container:hover .opt.menu {
+        transform: rotate(0deg)
+    }
+    
+    .container:hover .opt.one {
+        transform: translate(100px) scale(.8);
+    }
+    
+    .container:hover .opt.two {
+        transform: translateY(-100px)scale(.8);
+    }
+    
+    .container:hover .opt.three {
+        transform: translateY(-100px)translateX(100px)scale(.8);
+    }
+    
+    .opt {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 20px;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*clase*/
+        transition: .3s;
+    }
+    
+    .opt.menu {
+        background-color: orange;
+        z-index: 4;
+        transform: rotate(45deg);
+    }
+    
+    .opt.one {
+        background-color: #ffa5008c;
+        z-index: 3;
+    }
+    
+    .opt.two {
+        background-color: #ffa5008c;
+        z-index: 2;
+    }
+    
+    .opt.three {
+        background-color: #ffa5008c;
+        z-index: 1;
+    }
+    
+    .img {
+        animation-name: cuadrado;
+        animation-duration: 1.8s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes cuadrado {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="opt menu">
+            <img src="/icon_close.png" alt="opcion">
+        </div>
+        <div class="opt one">
+            <img class="img" src="/icon_favorite.png" alt="opcion">
+        </div>
+        <div class="opt two">
+            <img class="img" src="/icon_near.png" alt="opcion">
+        </div>
+        <div class="opt three">
+            <img class="img" src="/icon_shopping.png" alt="opcion">
+        </div>
+    </div>
+</body>
+
+</html>

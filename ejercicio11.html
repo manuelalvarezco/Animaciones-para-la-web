@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animaciones múltiples</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .container {
+        border: 1px solid red;
+        width: 100%;
+    }
+    
+    .container:hover .cuadrado {
+        animation-play-state: paused;
+    }
+    
+    .cuadrado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 20px;
+        background-color: blueviolet;
+        animation-name: cuadrado, rebote;
+        animation-duration: 2s, .3s;
+        /*animation-delay: 1s;*/
+        /*animation-iteration-count: 2;*/
+        animation-iteration-count: infinite;
+        /*animation-timing-function: cubic-bezier(1, 1, 1, 1);*/
+        /*animation-direction: normal reverse alternate ;*/
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        /* que la animación quede como finaliza en 100%*/
+        /*animation-play-state: paused running;*/
+        position: relative;
+        /*animation-timing-function: ease = lento | ease ease-in ease-in-out ease-out linear;*/
+        /*animation-timing-function: linear;*/
+        /*animation-timing-function: steps(5);*/
+        /* n pasos por segundo(animarion-duration)*/
+        /*animation-timing-function: cubic-bezier( 1, 1 , 1 , 1); va desde -1 a 1*/
+        /*animation-timing-function: cubic-bezier( .75, -0.13, .33, 1.26);*/
+        animation-timing-function: linear, ease-in-out;
+    }
+    
+    @keyframes cuadrado {
+        /*0% - 100%*/
+        0% {
+            /*opacity: 1;*/
+            left: 0;
+        }
+        100% {
+            /*opacity: 0;*/
+            left: calc(100% - 220px);
+        }
+    }
+    
+    @keyframes rebote {
+        /*shortcodes*/
+        /* 0% */
+        from {
+            /*opacity: 1;*/
+            transform: translateY(0);
+        }
+        /* 100% */
+        to {
+            /*opacity: 0;*/
+            transform: translateY(100px) scale(1, .9);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+        <div class="cuadrado">
+            Hola mundo
+        </div>
+    </div>
+</body>
+
+
+</html>
